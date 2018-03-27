@@ -23,6 +23,7 @@ dic_path = input('输入保存的目录全路径,不存在会创建 (默认地�
 tags = str(Function.get('last_tags.data'))
 # 搜索参数
 tmp_tags = input('输入爬取关键字, 多关键字中间用\'_\'连接(例：final_fantasy_14，默认上次搜索的关键词\n 上次搜索关键词为: ' + tags + '\n')
+tmp_tags = tmp_tags.strip()
 
 tags = str(Function.get('last_tags.data')) if tmp_tags == '' else tmp_tags
 
