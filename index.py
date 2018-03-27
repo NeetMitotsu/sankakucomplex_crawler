@@ -5,6 +5,13 @@ import Sankaku
 import re
 import time
 
+
+print("""\
+    author: NeetMitotus\n
+    github地址：https://github.com/NeetMitotsu/sankakucomplex_crawler\n
+    此爬虫仅供参考学习使用，如果喜欢请联系原画师申请授权\n
+""")
+
 # 页码
 page = 1
 # 终止页码 此页码为0时根据last_start_id来判断是否停止爬取； 非0时爬完此页即停止
@@ -12,7 +19,7 @@ page = 1
 max_page = 0
 
 # 保存路径
-dic_path = input('输入保存的目录全路径,不存在会创建 (默认地址：E:/SankakuComplex\n')
+dic_path = input('输入保存的目录全路径,不存在会创建 (默认地址：D:/SankakuComplex\n')
 tags = str(Function.get('last_tags.data'))
 # 搜索参数
 tmp_tags = input('输入爬取关键字, 多关键字中间用\'_\'连接(例：final_fantasy_14，默认上次搜索的关键词\n 上次搜索关键词为: ' + tags + '\n')

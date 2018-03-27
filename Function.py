@@ -3,7 +3,7 @@ import os.path
 import datetime
 
 # 图片保存位置
-_folder_name = 'E:/SankakuComplex/'
+_folder_name = 'D:/SankakuComplex/'
 
 def create_folder(_dic_name: str):
     global _folder_name
