@@ -22,7 +22,8 @@ def write(file_name: str, data, root: bool = False):
     :return:
     """
     global _folder_name
-    file_name = file_name if root else _folder_name + '/' + file_name
+    # file_name = file_name if root else _folder_name + '/' + file_name
+    file_name = os.path.join(file_name if root else os.path.join(_folder_name, file_name))
     file = open(file_name, 'wb')
     if isinstance(data, int) or isinstance(data, str):
         data = str(data).encode()
@@ -50,4 +51,5 @@ def exist(file_name: str):
     :return: bool
     """
     global _folder_name
-    return os.path.exists(_folder_name + '/' + file_name)
+    return os.path.exists(os.path.join(_folder_name, file_name))
+    # return os.path.exists(_folder_name + '/' + file_name)
