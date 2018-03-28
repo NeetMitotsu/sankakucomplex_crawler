@@ -3,15 +3,18 @@ import os.path
 import datetime
 
 # 图片保存位置
-_folder_name = os.path.join('E','SankakuComplex')
+_folder_name = os.path.join('E:','SankakuComplex')
+
 
 def create_folder(_dic_name: str, tag_name: str = 'default'):
     global _folder_name
+    print(_folder_name)
     if _dic_name != '': _folder_name = _dic_name
     # 创建目录存放图片
     _folder_name = os.path.join(_folder_name, datetime.datetime.now().strftime("%y%m%d"))
-    if not os.path.exists(os.path.join(_folder_name, tag_name)):
-        os.makedirs(os.path.join(_folder_name, tag_name))
+    _folder_name = os.path.join(_folder_name, tag_name)
+    if not os.path.exists(_folder_name):
+        os.makedirs(_folder_name)
 
 def write(file_name: str, data, root: bool = False):
     """
@@ -24,6 +27,7 @@ def write(file_name: str, data, root: bool = False):
     global _folder_name
     # file_name = file_name if root else _folder_name + '/' + file_name
     file_name = os.path.join(file_name if root else os.path.join(_folder_name, file_name))
+    print(file_name)
     file = open(file_name, 'wb')
     if isinstance(data, int) or isinstance(data, str):
         data = str(data).encode()
