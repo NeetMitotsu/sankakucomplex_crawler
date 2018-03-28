@@ -1,0 +1,28 @@
+/target
+.settings
+.project
+.classpath
+.idea
+*.iml
+src/test/*
+WebRoot/META-INF/MANIFEST.MF
+src/main/webapp/im/*
+src/main/resources/dev/*
+
+
+# Eclipse
+.project
+.classpath
+/.settings
+
+# Maven
+/target
+
+# Gradle
+/.gradle
+/build
+
+# IDEA
+/.idea
+*.iml
+
