@@ -26,3 +26,6 @@ src/main/resources/dev/*
 /.idea
 *.iml
 
+# python package
+/dist
+*.spec
