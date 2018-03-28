@@ -3,15 +3,15 @@ import os.path
 import datetime
 
 # 图片保存位置
-_folder_name = 'E:/SankakuComplex/'
+_folder_name = os.path.join('E','SankakuComplex')
 
-def create_folder(_dic_name: str):
+def create_folder(_dic_name: str, tag_name: str = 'default'):
     global _folder_name
     if _dic_name != '': _folder_name = _dic_name
     # 创建目录存放图片
     _folder_name += datetime.datetime.now().strftime("%y%m%d")
-    if not os.path.exists(_folder_name):
-        os.makedirs(_folder_name)
+    if not os.path.exists(os.path.join(_folder_name, tag_name)):
+        os.makedirs(os.path.join(_folder_name, tag_name))
 
 def write(file_name: str, data, root: bool = False):
     """

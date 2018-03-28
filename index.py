@@ -20,7 +20,10 @@ tmp_tags = input('输入爬取关键字, 多关键字中间用\'_\'连接(例：
 tags = str(Function.get('last_tags.data')) if tmp_tags == '' else tmp_tags
 
 # 创建目录存放今天爬取的图
-Function.create_folder(dic_path)
+if tmp_tags != '':
+    Function.create_folder(dic_path, tags)
+else:
+    Function.create_folder(dic_path)
 # 上次开始时爬取第一张的图片ID
 last_start_id = int(Function.get('last_start_id.data')) if tags == '' else int(Function.get(tags + '.data'))
 
