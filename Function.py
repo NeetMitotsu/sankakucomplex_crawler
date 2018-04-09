@@ -3,7 +3,7 @@ import os.path
 import datetime
 
 # 图片保存位置
-_folder_name = os.path.join('E:','SankakuComplex')
+_folder_name = os.path.join('D:','SankakuComplex')
 
 
 def create_folder(_dic_name: str, tag_name: str = 'default'):
@@ -54,4 +54,5 @@ def exist(file_name: str):
     """
     global _folder_name
     return os.path.exists(os.path.join(_folder_name, file_name))
+
     # return os.path.exists(_folder_name + '/' + file_name)
