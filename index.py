@@ -96,9 +96,12 @@ while True:
                 ts = time.time()
                 # print('https:' + imgsrc)
                 # print('https://chan.sankakucomplex.com' + ahref)
-                img = Http.get('https:' + imgsrc)
-                Log.add('下载完毕。耗时：' + str(int(time.time() - ts)) + 's')
-                Function.write(file_name, img)
+                img = Http.get('https:' + imgsrc + "?e=" + time.time() + "&m=" + "")
+                if img is not None:
+                    Function.write(file_name, img)
+                    Log.add('下载完毕。耗时：' + str(int(time.time() - ts)) + 's')
+                else:
+                    Log.add('下载失败')
         if end:
             break
     else:
