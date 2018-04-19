@@ -84,10 +84,12 @@ while True:
                 # 获取文件名
                 # 此处不解码
                 # print(img_info_list['src'])
-                imgsrc = re.findall(r"/.*jpg|/.*gif|/.*png|/.*jpeg", img_info_list['src'])[0]
+                # imgsrc = re.findall(r"/.*jpg|/.*gif|/.*png|/.*jpeg", img_info_list['src'])[0]
+                imgsrc = img_info_list['src']
                 # print(img_info_list['src'])
                 # print(imgsrc)
-                file_name = imgsrc.split('/')[-1]
+                file_name = re.findall(r"/.*jpg|/.*gif|/.*png|/.*jpeg", img_info_list['src'])[0].split('/')[-1]
+                # file_name = imgsrc.split('/')[-1]
                 if Function.exist(file_name):
                     Log.add(imgsrc + '已存在, 跳过')
                     continue
@@ -96,7 +98,7 @@ while True:
                 ts = time.time()
                 # print('https:' + imgsrc)
                 # print('https://chan.sankakucomplex.com' + ahref)
-                img = Http.get('https:' + imgsrc + "?e=" + time.time() + "&m=" + "")
+                img = Http.get('https:' + imgsrc) # + "?e=" + time.time() + "&m=" + ""
                 if img is not None:
                     Function.write(file_name, img)
                     Log.add('下载完毕。耗时：' + str(int(time.time() - ts)) + 's')
