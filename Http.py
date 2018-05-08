@@ -1,18 +1,18 @@
 import urllib.request
 import requests
+#
+# def get_proxy():
+#     return requests.get("http://127.0.0.1:5010/get/").content
+#
+# def delete_proxy(proxy):
+#     requests.get("http://127.0.0.1:5010/delete/?proxy={}".format(proxy))
 
-def get_proxy():
-    return requests.get("http://127.0.0.1:5010/get/").content
 
-def delete_proxy(proxy):
-    requests.get("http://127.0.0.1:5010/delete/?proxy={}".format(proxy))
-
-
-retry_count = 5
-proxy_addr = get_proxy()
-proxy = urllib.request.ProxyHandler({'http':proxy_addr})
-opener = urllib.request.build_opener(proxy, urllib.request.HTTPHandler)
-urllib.request.install_opener(opener)
+# retry_count = 5
+# proxy_addr = get_proxy()
+# proxy = urllib.request.ProxyHandler({'http':proxy_addr})
+# opener = urllib.request.build_opener(proxy, urllib.request.HTTPHandler)
+# urllib.request.install_opener(opener)
 
 
 def get(url: str, header: list = {}):
@@ -29,15 +29,15 @@ def get(url: str, header: list = {}):
     # header['Host'] = 'chan.sankakucomplex.com'
     # print(header)
     request = urllib.request.Request(url, headers = header)
-    while retry_count > 0:
-        try:
-            return urllib.request.urlopen(request).read()
-        except Exception:
-            retry_count -= 1
-    delete_proxy(proxy_addr)
+    # while retry_count > 0:
+    try:
+        return urllib.request.urlopen(request).read()
+    except Exception:
+        #     retry_count -= 1
+    # delete_proxy(proxy_addr)
     # proxy_addr = get_proxy()
     # retry_count = 5
-    return None
+        return None
 
 
 
