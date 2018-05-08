@@ -58,6 +58,8 @@ while True:
             # 获取id
             id = Sankaku.get_inner_url_id(ahref)
             # 获取图片信息
+            if not inner_html:
+                continue
             img_info_list = Sankaku.get_info(inner_html)
             width = img_info_list['width']
             height = img_info_list['height']
@@ -93,7 +95,6 @@ while True:
                 if Function.exist(file_name):
                     Log.add(imgsrc + '已存在, 跳过')
                     continue
-
                 Log.add(str(index) + '-' + file_name + '开始下载。。。。')
                 ts = time.time()
                 # print('https:' + imgsrc)
